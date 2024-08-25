@@ -2,7 +2,7 @@
 import random
 import numpy as np
 import tensorflow as tf
-from keras.api.layers import Dense, Dropout
+from keras.api.layers import Dense, Dropout, LSTM
 from keras.api.models import Sequential
 from keras.api.regularizers import l1, l2
 from keras.api.optimizers import Adam
@@ -20,18 +20,20 @@ def cw(df):
 
 optimizer = Adam(learning_rate = 0.0001)
 
-def create_model(hl = 2, hu = 100, dropout = False, rate = 0.3, regularize = False,
+def create_model2(hl = 2, hu = 100, dropout = False, rate = 0.3, regularize = False,
                  reg = l1(0.0005), optimizer = optimizer, input_dim = None):
     if not regularize:
         reg = None
-    model = Sequential()
-    model.add(Dense(hu, input_dim = input_dim, activity_regularizer = reg ,activation = "relu"))
-    if dropout: 
-        model.add(Dropout(rate, seed = 100))
-    for layer in range(hl):
-        model.add(Dense(hu, activation = "relu", activity_regularizer = reg))
-        if dropout:
-            model.add(Dropout(rate, seed = 100))
-    model.add(Dense(1, activation = "sigmoid"))
+
+    model = Sequential([
+        LSTM(64, activation='relu', return_sequences=True, input_shape=(1, input_dim)),
+        Dropout(0.3),
+        LSTM(32, activation='relu'),
+        Dropout(0.3),
+        Dense(32, activation='relu'),
+        Dense(1, activation='sigmoid')  # For regression; use 'sigmoid' for binary classification
+    ])
+
+
     model.compile(loss = "binary_crossentropy", optimizer = optimizer, metrics = ["accuracy"])
     return model
