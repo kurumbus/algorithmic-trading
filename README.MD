@@ -12,5 +12,6 @@ https://github.com/kurumbus/algorithmic-trading/blob/master/classification.ipynb
 
 https://github.com/kurumbus/algorithmic-trading/blob/master/linear-regression-scikit.ipynb - Simple Linear Regression with scikit
 
+https://github.com/kurumbus/algorithmic-trading/blob/master/neural-network-tensorflow.ipynb - a tensorflow neural network trying to make sense of one-minute bars. Let's just say for now it can't
 
-
+https://github.com/kurumbus/algorithmic-trading/blob/master/neural-network-ibkr.ipynb  - a working implementation of a neural network trading on IBKR (Interactive Brokers).
