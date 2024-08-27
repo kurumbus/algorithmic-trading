@@ -1,6 +1,6 @@
 ## Algorithm Trading
 
-Neural networks, alogrithms based on bollinger bands, SMAs and momentum/contrarian strategies
+Neural networks, machine learning, regressions, alogrithms based on bollinger bands, SMAs and momentum/contrarian strategies
 
 https://github.com/kurumbus/algorithmic-trading/blob/master/momentum-contrarian-opt.ipynb  - Attempt to optimize parameters for momentum/contrarian strategies. 
 
