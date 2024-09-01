@@ -5,3 +5,4 @@ eurusd_minute.csv
 DNN_data.csv
 *.keras
 *.pkl
+.env
